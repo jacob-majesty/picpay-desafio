@@ -2,6 +2,8 @@ package com.majesty.picpay.domain.user;
 
 import java.math.BigDecimal;
 
+import com.majesty.picpay.dto.UserDTO;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,5 +45,15 @@ public class User {
 
     @Enumerated(jakarta.persistence.EnumType.STRING)
     private UserType userType;
+
+    public User(UserDTO data) {
+        this.firstName = data.firstName();
+        this.lastName = data.lastName();
+        this.document = data.document();
+        this.email = data.email();
+        this.password = data.password();
+        this.balance = data.balance();
+        this.userType = data.userType();
+    }
 
 }
