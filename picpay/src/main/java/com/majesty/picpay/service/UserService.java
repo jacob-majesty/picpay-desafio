@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.majesty.picpay.domain.user.User;
 import com.majesty.picpay.domain.user.UserType;
+import com.majesty.picpay.dto.UserDTO;
 import com.majesty.picpay.repository.UserRepository;
 
 @Service
@@ -35,5 +36,9 @@ public class UserService {
     public void saveUser(User user) {
         this.userRepository.save(user);
     }
+
+    public User createUser(UserDTO user) {
+        User newUser = new User(data);
+        this.saveUser(newUser);
 
 }
