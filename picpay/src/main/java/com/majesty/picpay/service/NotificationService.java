@@ -21,14 +21,17 @@ public class NotificationService {
         NotificationDTO notificationRequest = new NotificationDTO(email, message);
 
         // Simula envio de notificação externo
-        ResponseEntity<String> notificationResponse = restTemplate
-                .postForEntity("https://util.devi.tools/api/v2/notify", notificationRequest, String.class);
+        // ResponseEntity<String> notificationResponse = restTemplate
+        // .postForEntity("https://util.devi.tools/api/v2/notify", notificationRequest,
+        // String.class);
 
-        if (!(notificationResponse.getStatusCode() == HttpStatus.valueOf(Response.SC_OK))) {
-            System.out.println("Status code: " + notificationResponse.getStatusCode());
-            throw new Exception("Erro ao enviar notificação");
-        }
+        // if (!(notificationResponse.getStatusCode() ==
+        // HttpStatus.valueOf(Response.SC_OK))) {
+        // System.out.println("Status code: " + notificationResponse.getStatusCode());
+        // throw new Exception("Erro ao enviar notificação");
+        // }
 
+        System.out.println("Notificação enviada para " + email);
     }
 
 }

@@ -2,6 +2,6 @@ package com.majesty.picpay.dto;
 
 import java.math.BigDecimal;
 
-public record TransactionDTO(BigDecimal value, Long senderId, Long receiverId) {
+public record TransactionDTO(Long senderId, Long receiverId, BigDecimal value) {
 
 }
