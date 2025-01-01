@@ -21,9 +21,12 @@ public class ControllerExceptionhandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity threatEntityNotFound(EntityNotFoundException ex) {
-
-        ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getMessage(), "Entidade nao encontrada!");
-        return ResponseEntity.badRequest().body(exceptionDTO);
+        return ResponseEntity.notFound().build();
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity threatException(Exception ex) {
+        ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getMessage(), "Erro interno do servidor!");
+        return ResponseEntity.internalServerError().body(exceptionDTO);
+    }
 }
